@@ -2,4 +2,5 @@
 *.obj
 *.exe
 _build
+cmake_build
 tests/output
