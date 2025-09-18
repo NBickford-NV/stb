@@ -7044,7 +7044,7 @@ static void *stbi__load_gif_main(stbi__context *s, int **delays, int *x, int *y,
 
                if (delays) {
                   *delays = (int*) STBI_REALLOC_SIZED( *delays, delays_size, sizeof(int) * layers );
-                  if (!delays)
+                  if (!*delays)
                      return stbi__load_gif_main_outofmem(&g, out, delays);
                   delays_size = layers * sizeof(int);
                }
