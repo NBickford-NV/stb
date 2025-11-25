@@ -125,6 +125,7 @@ add_executable(stb_image_test_issues
   image/1454_gif.h
   image/1838_gif.h
   image/1860_png.h
+  image/1861_png.h
 )
 target_compile_options(stb_image_test_issues PRIVATE ${STB_SANITIZERS})
 if(UNIX)

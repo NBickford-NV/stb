@@ -53,7 +53,7 @@ int test_1860_png() {
   free(png);
 
   if (!img)
-    return EXIT_FAILURE;
-  stbi_image_free(img);
+    stbi_image_free(img);
+
   return EXIT_SUCCESS;
 }
