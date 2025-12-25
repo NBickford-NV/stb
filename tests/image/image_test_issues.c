@@ -1,4 +1,5 @@
 #include "1454_gif.h"
+#include "1751_png.h"
 #include "1838_gif.h"
 #include "1860_png.h"
 #include "1861_png.h"
@@ -18,6 +19,7 @@
 
 int main() {
   CHECK(test_1454_gif());
+  CHECK(test_1751_png());
   CHECK(test_1838_gif());
   CHECK(test_1860_png());
   CHECK(test_1861_png());

@@ -8,9 +8,20 @@ extern "C" {
 
 #include "../stb_image.h"
 
+// Some bugs only show up when the stack is nonzero. So here we set the stack
+// to deterministic values so that earlier fuzz invocations don't affect it.
+void setup_stack() {
+  // A size of 4096+ seems to work for issue 1861.
+  volatile stbi_uc stack[8192];
+  for (size_t i = 0; i < sizeof(stack); i++) {
+    stack[i] = 0xFF;
+  }
+}
 
 int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size)
 {
+    setup_stack();
+    
     int x, y, channels, requested_channels;
 
     /* Read the last byte to determine the number of channels to request;

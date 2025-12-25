@@ -123,6 +123,7 @@ endif()
 add_executable(stb_image_test_issues
   image/image_test_issues.c
   image/1454_gif.h
+  image/1751_png.h
   image/1838_gif.h
   image/1860_png.h
   image/1861_png.h
@@ -211,7 +212,7 @@ if((CMAKE_CXX_COMPILER_ID STREQUAL "MSVC") OR (CMAKE_CXX_COMPILER_ID STREQUAL "C
 
   add_executable(stb_image_test_fuzz stbi_read_fuzzer.c)
   add_sanitizers(stb_image_test_fuzz)
-  set_target_properties(stb_image_test_fuzz PROPERTIES VS_DEBUGGER_COMMAND_ARGUMENTS --dict ${CMAKE_CURRENT_LIST_DIR}/stb_png.dict ${CMAKE_BINARY_DIR}/CORPUS_IMAGE)
+  set_target_properties(stb_image_test_fuzz PROPERTIES VS_DEBUGGER_COMMAND_ARGUMENTS "-dict=${CMAKE_CURRENT_LIST_DIR}/stb_png.dict ${CMAKE_BINARY_DIR}/CORPUS_IMAGE")
 
   add_executable(stb_image_test_gif_fuzz stbi_read_gif_fuzzer.c)
   add_sanitizers(stb_image_test_gif_fuzz)
